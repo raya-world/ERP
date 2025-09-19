@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-06 13:13:54.354674",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ascii_table",
+  "rate",
+  "total_diamond_weight",
+  "no_of_stones",
+  "primary_stone_dimension",
+  "combination"
+ ],
+ "fields": [
+  {
+   "fieldname": "combination",
+   "fieldtype": "Text",
+   "label": "Combination"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Data",
+   "label": "Gross Weight / Data"
+  },
+  {
+   "fieldname": "total_diamond_weight",
+   "fieldtype": "Data",
+   "label": "Total Stone weight"
+  },
+  {
+   "fieldname": "no_of_stones",
+   "fieldtype": "Data",
+   "label": "No of Stones"
+  },
+  {
+   "fieldname": "ascii_table",
+   "fieldtype": "Code",
+   "label": "ascii_table",
+   "options": "Plain Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "primary_stone_dimension",
+   "fieldtype": "Data",
+   "label": "Primary Stone Dimension"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-24 07:58:23.742330",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Rule set mapping",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

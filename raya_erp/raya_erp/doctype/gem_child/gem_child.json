@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-16 22:31:16.009710",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stone_shape",
+  "stone_setting_type",
+  "stone_family",
+  "no_of_stone",
+  "stone_wt",
+  "column_break_pdmy",
+  "impact_stone_shape",
+  "impact_stone_size",
+  "impact_stone_setting",
+  "impact_stone_family",
+  "impact_stone_nos",
+  "impact_stone_wt",
+  "is_pattern",
+  "is_family_pattern"
+ ],
+ "fields": [
+  {
+   "fieldname": "stone_shape",
+   "fieldtype": "Data",
+   "label": "Stone Shape"
+  },
+  {
+   "fieldname": "stone_setting_type",
+   "fieldtype": "Data",
+   "label": "Stone Category"
+  },
+  {
+   "fieldname": "stone_family",
+   "fieldtype": "Data",
+   "label": "Stone family"
+  },
+  {
+   "fieldname": "no_of_stone",
+   "fieldtype": "Data",
+   "label": "No of stone"
+  },
+  {
+   "fieldname": "stone_wt",
+   "fieldtype": "Data",
+   "label": "Stone Wt"
+  },
+  {
+   "fieldname": "column_break_pdmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_shape",
+   "fieldtype": "Check",
+   "label": "Impact Stone Shape"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_size",
+   "fieldtype": "Check",
+   "label": "Impact Stone Size"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_setting",
+   "fieldtype": "Check",
+   "label": "Impact Stone Setting"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_family",
+   "fieldtype": "Check",
+   "label": "Impact Stone Family"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_nos",
+   "fieldtype": "Check",
+   "label": "Impact Stone Nos"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_stone_wt",
+   "fieldtype": "Check",
+   "label": "Impact Stone Wt"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_pattern",
+   "fieldtype": "Check",
+   "label": "Is Pattern"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_family_pattern",
+   "fieldtype": "Check",
+   "label": "Is Family Pattern"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 11:07:42.029225",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Gem Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

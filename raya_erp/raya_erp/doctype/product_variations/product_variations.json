@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:unique_product_id",
+ "creation": "2025-08-03 15:08:38.092669",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "unique_product_id",
+  "item_sub_category",
+  "category",
+  "rule_sets_section",
+  "table_lrpq",
+  "section_break_fqfq",
+  "table_vvft",
+  "images_tab",
+  "product_image_list_section",
+  "product_image_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_sub_category",
+   "fieldtype": "Link",
+   "label": "Item Sub Category",
+   "options": "Item Sub-Category"
+  },
+  {
+   "fetch_from": "item_sub_category.category",
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "rule_sets_section",
+   "fieldtype": "Section Break",
+   "label": "Rule sets"
+  },
+  {
+   "fieldname": "table_lrpq",
+   "fieldtype": "Table",
+   "options": "Product Key Mapping"
+  },
+  {
+   "fieldname": "unique_product_id",
+   "fieldtype": "Data",
+   "label": "Product Variant ID",
+   "unique": 1
+  },
+  {
+   "fieldname": "images_tab",
+   "fieldtype": "Tab Break",
+   "label": "Images"
+  },
+  {
+   "fieldname": "product_image_list_section",
+   "fieldtype": "Section Break",
+   "label": "Product Image List"
+  },
+  {
+   "fieldname": "product_image_list",
+   "fieldtype": "Table",
+   "label": "Product Image List",
+   "options": "Product Image"
+  },
+  {
+   "fieldname": "section_break_fqfq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_vvft",
+   "fieldtype": "Table",
+   "options": "Rule set mapping"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-06 14:39:44.987824",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Product Variations",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-16 22:38:30.961024",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type_of_metal",
+  "finger_size",
+  "shank_base_width",
+  "shank_style",
+  "metal_colour",
+  "net_wt",
+  "pure_wt",
+  "column_break_lduv",
+  "impact_type_of_metal",
+  "impact_finger_size",
+  "impact_shank_base_width",
+  "impact_shank_style",
+  "impact_metal_colour",
+  "impact_net_wt",
+  "impact_pure_wt"
+ ],
+ "fields": [
+  {
+   "fieldname": "type_of_metal",
+   "fieldtype": "Data",
+   "label": "Type of metal"
+  },
+  {
+   "fieldname": "finger_size",
+   "fieldtype": "Data",
+   "label": "Finger Size"
+  },
+  {
+   "fieldname": "shank_base_width",
+   "fieldtype": "Data",
+   "label": "Shank Base Width"
+  },
+  {
+   "fieldname": "shank_style",
+   "fieldtype": "Data",
+   "label": "Shank style"
+  },
+  {
+   "fieldname": "metal_colour",
+   "fieldtype": "Data",
+   "label": "Metal colour"
+  },
+  {
+   "fieldname": "net_wt",
+   "fieldtype": "Data",
+   "label": "Net wt"
+  },
+  {
+   "fieldname": "pure_wt",
+   "fieldtype": "Data",
+   "label": "Pure wt"
+  },
+  {
+   "fieldname": "column_break_lduv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_type_of_metal",
+   "fieldtype": "Check",
+   "label": "Impact Type of metal"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_finger_size",
+   "fieldtype": "Check",
+   "label": "Impact Finger Size"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_shank_base_width",
+   "fieldtype": "Check",
+   "label": "Impact Shank Base Width"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_shank_style",
+   "fieldtype": "Check",
+   "label": "Impact Shank style"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_metal_colour",
+   "fieldtype": "Check",
+   "label": "Impact Metal colour"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_net_wt",
+   "fieldtype": "Check",
+   "label": "Impact Net wt"
+  },
+  {
+   "default": "0",
+   "fieldname": "impact_pure_wt",
+   "fieldtype": "Check",
+   "label": "Impact Pure wt"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-16 22:42:32.596223",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Metal Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

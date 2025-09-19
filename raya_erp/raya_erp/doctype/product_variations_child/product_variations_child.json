@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 22:38:07.938683",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "product_varaint"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_varaint",
+   "fieldtype": "Link",
+   "label": "Product Varaint",
+   "options": "Product Variations"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-05 22:39:06.455963",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Product Variations Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

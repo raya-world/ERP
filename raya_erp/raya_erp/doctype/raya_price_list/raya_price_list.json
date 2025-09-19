@@ -1,0 +1,231 @@
+{
+ "actions": [],
+ "autoname": "format:{list_rate_id}-{#####}",
+ "creation": "2025-03-21 00:43:47.981278",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "live_rate",
+  "list_rate_id",
+  "column_break_cesp",
+  "metal_type",
+  "stone_type",
+  "live_rate_details_section",
+  "purity",
+  "rate_per_gm",
+  "column_break_onxc",
+  "date_updated",
+  "weight_gm",
+  "section_break_djec",
+  "sieve_size",
+  "length",
+  "width",
+  "column_break_mjnd",
+  "weight_carat",
+  "stone_rate",
+  "other_attribute_section",
+  "stone_size_mm",
+  "stone_shape",
+  "column_break_gadm",
+  "stone_colour",
+  "stone_clarity"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "If checked, Mean rate fetched from the market and calculated as per the config set in setting.",
+   "fieldname": "live_rate",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Live Rate"
+  },
+  {
+   "fieldname": "column_break_cesp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.live_rate",
+   "fieldname": "metal_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Metal Type",
+   "mandatory_depends_on": "eval:doc.live_rate",
+   "options": "Attribute Type",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.live_rate",
+   "fieldname": "live_rate_details_section",
+   "fieldtype": "Section Break",
+   "label": "Live Rate Details"
+  },
+  {
+   "fieldname": "weight_gm",
+   "fieldtype": "Float",
+   "label": "Weight (gm)",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rate_per_gm",
+   "fieldtype": "Currency",
+   "label": "Rate (per gm)",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_onxc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.metal_type",
+   "fieldname": "purity",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Purity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_updated",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Date Updated",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.live_rate",
+   "fieldname": "stone_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Stone Type",
+   "mandatory_depends_on": "eval:!doc.live_rate",
+   "options": "Stone Type"
+  },
+  {
+   "depends_on": "eval:!doc.live_rate",
+   "fieldname": "section_break_djec",
+   "fieldtype": "Section Break",
+   "label": "Rate details"
+  },
+  {
+   "fieldname": "stone_shape",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Stone Shape",
+   "options": "Stone Shape"
+  },
+  {
+   "fieldname": "stone_size_mm",
+   "fieldtype": "Float",
+   "label": "Stone Size(mm)",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "description": "Stone Rate per Carat",
+   "fieldname": "stone_rate",
+   "fieldtype": "Currency",
+   "label": "Stone Rate",
+   "mandatory_depends_on": "eval:doc.stone_type",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_mjnd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stone_clarity",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Stone Clarity",
+   "options": "Stone Clarity"
+  },
+  {
+   "fieldname": "weight_carat",
+   "fieldtype": "Float",
+   "label": "Weight (Carat)",
+   "mandatory_depends_on": "eval:doc.stone_type",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "stone_colour",
+   "fieldtype": "Link",
+   "label": "Stone colour",
+   "options": "Stone Colour"
+  },
+  {
+   "fieldname": "list_rate_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "List Rate ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sieve_size",
+   "fieldtype": "Float",
+   "label": "Sieve Size",
+   "mandatory_depends_on": "eval:doc.weight_carat<5",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length",
+   "mandatory_depends_on": "eval:doc.weight_carat>=5",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width",
+   "mandatory_depends_on": "eval:doc.weight_carat>=5",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "depends_on": "eval:!doc.live_rate",
+   "fieldname": "other_attribute_section",
+   "fieldtype": "Section Break",
+   "label": "Other Attribute"
+  },
+  {
+   "fieldname": "column_break_gadm",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-28 00:31:58.247225",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Raya Price List",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

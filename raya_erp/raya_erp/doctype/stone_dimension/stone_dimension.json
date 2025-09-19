@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2025-08-30 12:29:24.791758",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shape",
+  "cut",
+  "length",
+  "width",
+  "height",
+  "stone_type",
+  "estimated_weight_ct"
+ ],
+ "fields": [
+  {
+   "fieldname": "shape",
+   "fieldtype": "Data",
+   "label": "shape"
+  },
+  {
+   "fieldname": "cut",
+   "fieldtype": "Data",
+   "label": "cut"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "length"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "width"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "label": "height"
+  },
+  {
+   "fieldname": "stone_type",
+   "fieldtype": "Data",
+   "label": "stone_type"
+  },
+  {
+   "fieldname": "estimated_weight_ct",
+   "fieldtype": "Data",
+   "label": "Estimated Weight in Ct"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-30 12:32:14.246916",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Stone Dimension",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

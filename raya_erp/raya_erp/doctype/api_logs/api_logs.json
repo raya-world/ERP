@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "creation": "2025-03-21 19:57:37.257854",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "column_break_zujf",
+  "requested_url",
+  "section_break_oviq",
+  "data"
+ ],
+ "fields": [
+  {
+   "fieldname": "data",
+   "fieldtype": "Long Text",
+   "label": "Response Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zujf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requested_url",
+   "fieldtype": "Small Text",
+   "label": "Requested URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_oviq",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-21 21:43:29.808346",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "API Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_seen": 1
+}
