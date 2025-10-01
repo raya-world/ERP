@@ -7,40 +7,26 @@
  "engine": "InnoDB",
  "field_order": [
   "key",
-  "value",
-  "will_impact_metal",
-  "will_impact_gem"
+  "value"
  ],
  "fields": [
   {
    "fieldname": "key",
    "fieldtype": "Link",
    "label": "Key",
-   "options": "Rule set"
+   "options": "Item Attribute"
   },
   {
    "fieldname": "value",
    "fieldtype": "Data",
    "label": "Value"
-  },
-  {
-   "default": "0",
-   "fieldname": "will_impact_metal",
-   "fieldtype": "Check",
-   "label": "Will impact metal"
-  },
-  {
-   "default": "0",
-   "fieldname": "will_impact_gem",
-   "fieldtype": "Check",
-   "label": "Will impact gem"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-05 23:28:13.037848",
+ "modified": "2025-10-02 00:51:48.902169",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Product Key Mapping",
