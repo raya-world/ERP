@@ -8,7 +8,9 @@
  "field_order": [
   "metal_type",
   "carat_kt",
-  "colour"
+  "colour",
+  "purity",
+  "gram_covers"
  ],
  "fields": [
   {
@@ -21,19 +23,29 @@
    "fieldname": "carat_kt",
    "fieldtype": "Select",
    "label": "Carat (kt)",
-   "options": "\n18\n14"
+   "options": "\n24\n22\n18\n14\n9\n925"
   },
   {
    "fieldname": "colour",
    "fieldtype": "Select",
    "label": "Colour",
    "options": "\nWhite Gold\nYellow Gold\nRose Gold"
+  },
+  {
+   "fieldname": "purity",
+   "fieldtype": "Float",
+   "label": "Purity"
+  },
+  {
+   "fieldname": "gram_covers",
+   "fieldtype": "Float",
+   "label": "Gram Covers"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-28 01:02:25.942525",
+ "modified": "2025-10-20 12:48:34.415828",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Metal Type",

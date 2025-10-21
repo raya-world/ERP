@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-21 10:06:03.884849",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "variant",
+  "net_weight",
+  "gross_weight"
+ ],
+ "fields": [
+  {
+   "fieldname": "variant",
+   "fieldtype": "Link",
+   "label": "Variant",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "variant.net_weight",
+   "fieldname": "net_weight",
+   "fieldtype": "Data",
+   "label": "Net Weight"
+  },
+  {
+   "fetch_from": "variant.gross_weight",
+   "fieldname": "gross_weight",
+   "fieldtype": "Data",
+   "label": "Gross Weight"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-21 10:09:17.296983",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Product Attribute List",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

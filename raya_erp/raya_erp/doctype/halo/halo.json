@@ -1,69 +1,53 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
- "creation": "2025-08-30 12:29:24.791758",
+ "autoname": "format:{name1}-{shape}-{family}",
+ "creation": "2025-10-20 13:11:47.618428",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "name1",
   "shape",
-  "cut",
-  "length",
-  "width",
-  "height",
-  "stone_type",
-  "estimated_weight_ct",
-  "price"
+  "family",
+  "dimension",
+  "no_of_stones"
  ],
  "fields": [
   {
    "fieldname": "shape",
    "fieldtype": "Data",
-   "label": "shape"
+   "label": "Shape"
   },
   {
-   "fieldname": "cut",
+   "fieldname": "family",
    "fieldtype": "Data",
-   "label": "cut"
+   "label": "Family"
   },
   {
-   "fieldname": "length",
-   "fieldtype": "Float",
-   "label": "length"
-  },
-  {
-   "fieldname": "width",
-   "fieldtype": "Float",
-   "label": "width"
-  },
-  {
-   "fieldname": "height",
-   "fieldtype": "Float",
-   "label": "height"
-  },
-  {
-   "fieldname": "stone_type",
+   "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "stone_type"
+   "label": "Name",
+   "unique": 1
   },
   {
-   "fieldname": "estimated_weight_ct",
+   "fieldname": "dimension",
    "fieldtype": "Data",
-   "label": "Estimated Weight in Ct"
+   "label": "Dimension"
   },
   {
-   "fieldname": "price",
-   "fieldtype": "Float",
-   "label": "Price"
+   "fieldname": "no_of_stones",
+   "fieldtype": "Int",
+   "label": "No of Stones"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-20 11:00:23.134289",
+ "modified": "2025-10-20 13:19:57.223014",
  "modified_by": "Administrator",
  "module": "Raya ERP",
- "name": "Stone Dimension",
+ "name": "Halo",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

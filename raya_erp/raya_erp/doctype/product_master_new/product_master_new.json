@@ -10,9 +10,16 @@
   "name_of_product",
   "category",
   "item_sub_category",
+  "column_break_dbxf",
+  "labour_rate",
+  "labour_rate_on",
+  "margin",
+  "section_break_blzp",
   "product_key_mapping",
   "product_description_tab",
-  "product_description"
+  "product_description",
+  "tab_3_tab",
+  "table_boml"
  ],
  "fields": [
   {
@@ -47,12 +54,45 @@
    "fieldtype": "Table",
    "label": "Product Key Mapping",
    "options": "Product Key Mapping"
+  },
+  {
+   "fieldname": "column_break_dbxf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "labour_rate",
+   "fieldtype": "Float",
+   "label": "Labour Rate"
+  },
+  {
+   "fieldname": "labour_rate_on",
+   "fieldtype": "Select",
+   "label": "Labour Rate On",
+   "options": "\nNet\nGross\nOther"
+  },
+  {
+   "fieldname": "margin",
+   "fieldtype": "Percent",
+   "label": "Margin"
+  },
+  {
+   "fieldname": "section_break_blzp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tab_3_tab",
+   "fieldtype": "Tab Break",
+   "label": "Variants"
+  },
+  {
+   "fieldname": "table_boml",
+   "fieldtype": "HTML"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-02 00:08:16.592579",
+ "modified": "2025-10-21 10:25:23.880210",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Product Master New",

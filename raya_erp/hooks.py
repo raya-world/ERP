@@ -131,10 +131,10 @@ doctype_js = {
 # DocType Class
 # ---------------
 # Override standard doctype classes
-
-# override_doctype_class = {
-# 	"Item": "raya_erp.raya_erp.customization.item.item.CustomItem"
-# }
+# /workspace/development/frappe-bench/apps/raya_erp/raya_erp/raya_erp/customization/item/item.py
+override_doctype_class = {
+	"Item": "raya_erp.raya_erp.customization.item.item.CustomItem"
+}
 
 # Document Events
 # ---------------
