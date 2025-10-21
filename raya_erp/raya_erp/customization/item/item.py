@@ -23,25 +23,25 @@ def calculate_stone_collection(self):
 
     for i in self.attributes:
         if i.attribute == "Metal":
-            self.metal_type = i.value
+            self.metal_type = i.custom_value
         if i.custom_stone_id:
             if i.custom_stone_id not in stone_collections:
                 stone_collections[i.custom_stone_id] = {}
-            stone_collections[i.custom_stone_id][i.attribute] = i.value
+            stone_collections[i.custom_stone_id][i.attribute] = i.custom_value
         else:
             if i.attribute == "Band":
-                band = frappe.get_doc("Ring Attributes", i.value)
+                band = frappe.get_doc("Ring Attributes", i.custom_value)
                 tmp = int(match.group(0)) if (match := re.match(r'\d+', band.dimension)) else None
                 stones_weight = stones_weight + (tmp * band.no_of_stones)
 
             if i.attribute == "Halo":
-                halo = frappe.get_doc("Ring Attributes", i.value)
+                halo = frappe.get_doc("Ring Attributes", i.custom_value)
                 tmp = int(match.group(0)) if (match := re.match(r'\d+', halo.dimension)) else None
                 stones_weight = stones_weight + (tmp * halo.no_of_stones)
     
     print(stone_collections)
     custom_stones_list = []
-    for stone_collection in stone_collections.values():
+    for stone_collection in stone_collections.custom_values():
         if stone_collection.get("Shape") and stone_collection.get("Stone Family") and stone_collection.get("Size"):
             if stone_collection["Size"][-2:] == "ct":
                 stones_weight = stones_weight + float(stone_collection["Size"][:-2])
@@ -96,10 +96,10 @@ def fetch_metal_price(name):
         item = frappe.get_doc("Item", name)
         for i in item.attributes:
             if i.attribute == "Metal":
-                metal_type = i.value
+                metal_type = i.custom_value
                 break
         parts = metal_type.split('-')
-        rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
+        rate = frappe.db.get_custom_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
         return rate
     except Exception as e:
         print("Error fetching metal price:", e)
