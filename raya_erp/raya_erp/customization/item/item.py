@@ -101,7 +101,7 @@ def fetch_metal_price(name):
                 metal_type = i.custom_value
                 break
         parts = metal_type.split('-')
-        rate = frappe.db.get_custom_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
+        rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
         return rate
     except Exception as e:
         print("Error fetching metal price:", e)
