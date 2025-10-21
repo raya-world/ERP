@@ -41,7 +41,7 @@ def calculate_stone_collection(self):
     
     print(stone_collections)
     custom_stones_list = []
-    for stone_collection in stone_collections.custom_values():
+    for stone_collection in stone_collections.custom_value():
         if stone_collection.get("Shape") and stone_collection.get("Stone Family") and stone_collection.get("Size"):
             if stone_collection["Size"][-2:] == "ct":
                 stones_weight = stones_weight + float(stone_collection["Size"][:-2])
