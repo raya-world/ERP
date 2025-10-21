@@ -24,10 +24,10 @@ def calculate_stone_collection(self):
     for i in self.attributes:
         if i.attribute == "Metal":
             self.metal_type = i.value
-        if i.stone_id:
-            if i.stone_id not in stone_collections:
-                stone_collections[i.stone_id] = {}
-            stone_collections[i.stone_id][i.attribute] = i.value
+        if i.custom_stone_id:
+            if i.custom_stone_id not in stone_collections:
+                stone_collections[i.custom_stone_id] = {}
+            stone_collections[i.custom_stone_id][i.attribute] = i.value
         else:
             if i.attribute == "Band":
                 band = frappe.get_doc("Ring Attributes", i.value)
