@@ -22,6 +22,7 @@ def calculate_stone_collection(self):
     stone_collections = {}
 
     for i in self.attributes:
+        print('++++++++++++++++++++++ Attribute Item +++++++++++++++++++++++', i.custom_value)
         if i.attribute == "Metal":
             self.metal_type = i.custom_value
         if i.custom_stone_id:
@@ -41,7 +42,7 @@ def calculate_stone_collection(self):
     
     print(stone_collections)
     custom_stones_list = []
-    for stone_collection in stone_collections.custom_value():
+    for stone_collection in stone_collections.values():
         if stone_collection.get("Shape") and stone_collection.get("Stone Family") and stone_collection.get("Size"):
             if stone_collection["Size"][-2:] == "ct":
                 stones_weight = stones_weight + float(stone_collection["Size"][:-2])
@@ -77,6 +78,7 @@ def calculate_stone_collection(self):
                     custom_stones_list.append(sd.name)
 
     self.custom_stones = str(custom_stones_list)
+    print("Total Stones Weight: ", stones_weight)
     return stones_weight
 
 
