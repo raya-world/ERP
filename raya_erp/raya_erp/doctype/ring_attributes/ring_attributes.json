@@ -10,7 +10,8 @@
   "shape",
   "family",
   "dimension",
-  "no_of_stones"
+  "no_of_stones",
+  "total_weight_in_ct"
  ],
  "fields": [
   {
@@ -38,12 +39,17 @@
    "fieldname": "no_of_stones",
    "fieldtype": "Int",
    "label": "No of Stones"
+  },
+  {
+   "fieldname": "total_weight_in_ct",
+   "fieldtype": "Float",
+   "label": "Total Weight in ct"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-20 19:18:47.770017",
+ "modified": "2025-10-25 11:56:03.442082",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Ring Attributes",

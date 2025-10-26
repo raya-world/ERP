@@ -150,9 +150,13 @@ doc_events = {
     "Item":{
         "before_save":"raya_erp.raya_erp.customization.item.item.before_save",
         "after_insert":"raya_erp.raya_erp.customization.item.item.after_insert",
+        "autoname":"raya_erp.raya_erp.customization.item.item.custom_item_autoname"
     },
     "Item Price":{
         "validate":"raya_erp.raya_erp.customization.item_price.item_price.validate"
+    },
+    "Serial No":{
+        "before_save":"raya_erp.raya_erp.customization.serial_no.serial_no.before_save",
     }
 }
 

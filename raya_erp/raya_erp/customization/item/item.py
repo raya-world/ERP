@@ -1,18 +1,31 @@
 import frappe
 import re
 from erpnext.stock.doctype.item.item import Item
+from frappe.model.naming import make_autoname
 
 class CustomItem(Item):
     def validate_attributes(self):
-        print(".........................Custom validate_attributes called..........................")
         pass
+
+def custom_item_autoname(self, method=None):
+    """
+    Custom naming for Item Doctype.
+    Format: RY-{custom_product_master}-{####}
+    """
+    if self.custom_product_master:
+        prefix = f"RY-{self.custom_product_master}-"
+        self.name = make_autoname(prefix + ".####")
+    else:
+        # fallback to default
+        self.name = make_autoname("RY-ITEM-.####")
 
 def after_insert(self, method=None):
     pass
 
 def before_save(self,method=None):
     if self.item_group == "Rings":
-        self.stones_weight = calculate_stone_collection(self) * 0.2
+        self.stone_carat_wt = calculate_stone_collection(self)
+        self.stones_weight = self.stone_carat_wt * 0.2
         self.net_weight = self.gross_weight - self.stones_weight
         metal = frappe.get_doc("Metal Type", self.metal_type)
         self.custom_net_weight_metal = self.net_weight * metal.gram_covers
@@ -21,8 +34,7 @@ def calculate_stone_collection(self):
     stones_weight = 0.0
     stone_collections = {}
 
-    for i in self.attributes:
-        print('++++++++++++++++++++++ Attribute Item +++++++++++++++++++++++', i.custom_value)
+    for i in self.custom_variant_attributes:
         if i.attribute == "Metal":
             self.metal_type = i.custom_value
         if i.custom_stone_id:
@@ -32,15 +44,12 @@ def calculate_stone_collection(self):
         else:
             if i.attribute == "Band":
                 band = frappe.get_doc("Ring Attributes", i.custom_value)
-                tmp = int(match.group(0)) if (match := re.match(r'\d+', band.dimension)) else None
-                stones_weight = stones_weight + (tmp * band.no_of_stones)
+                stones_weight = stones_weight + band.total_weight_in_ct
 
             if i.attribute == "Halo":
                 halo = frappe.get_doc("Ring Attributes", i.custom_value)
-                tmp = int(match.group(0)) if (match := re.match(r'\d+', halo.dimension)) else None
-                stones_weight = stones_weight + (tmp * halo.no_of_stones)
+                stones_weight = stones_weight + halo.total_weight_in_ct
     
-    print(stone_collections)
     custom_stones_list = []
     for stone_collection in stone_collections.values():
         if stone_collection.get("Shape") and stone_collection.get("Stone Family") and stone_collection.get("Size"):
@@ -93,10 +102,9 @@ def update_metal_price(self):
 
 @frappe.whitelist()
 def fetch_metal_price(name):
-    print("Fetching metal price for item:", name,'------------------')
     try:
         item = frappe.get_doc("Item", name)
-        for i in item.attributes:
+        for i in item.custom_variant_attributes:
             if i.attribute == "Metal":
                 metal_type = i.custom_value
                 break
@@ -104,15 +112,13 @@ def fetch_metal_price(name):
         rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
         return rate
     except Exception as e:
-        print("Error fetching metal price:", e)
         return 0
     
 @frappe.whitelist()
 def fetch_stone_price(name):
     try:
         stone_list = frappe.get_doc("Item", name).custom_stones
-        print("Fetching stone price for item:", stone_list,'------------------',list(stone_list))
-        list_stones = stone_list.strip("[]").replace("'", "").split(", ")   
+        list_stones = stone_list.strip("[]").replace("'", "").split(", ")
         price = 0.0
         total_stone_price = 0.0
         for i in list_stones:
@@ -120,5 +126,4 @@ def fetch_stone_price(name):
                 price = price + stone.price
         return price
     except Exception as e:
-        print("Error fetching stone price:", e)
         return 0
