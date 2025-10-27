@@ -15,6 +15,7 @@
   "section_break_brms",
   "carat_weight",
   "stone_value",
+  "stone_rate",
   "column_break_etmf",
   "no_of_stones",
   "dimension"
@@ -95,13 +96,18 @@
    "fieldname": "stone_value",
    "fieldtype": "Currency",
    "label": "Stone Value"
+  },
+  {
+   "fieldname": "stone_rate",
+   "fieldtype": "Currency",
+   "label": "Stone Rate"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-10-27 18:53:27.403111",
+ "modified": "2025-10-27 19:04:31.186015",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Stone Details",
