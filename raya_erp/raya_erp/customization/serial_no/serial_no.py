@@ -6,7 +6,6 @@ def before_save(self,method=None):
     for i in self.custom_stone_detials:
         stone_weight_in_ct = stone_weight_in_ct + (i.carat_weight * i.no_of_stones)
         i.stone_value = i.stone_rate * (i.carat_weight * i.no_of_stones)
-        i.labour_value = i.labour_rate * (i.carat_weight * i.no_of_stones)
         total_stone_value = total_stone_value + i.stone_value
 
     self.custom_net_weight = self.custom_gross_weight - (stone_weight_in_ct * 0.2)
@@ -14,4 +13,9 @@ def before_save(self,method=None):
     metal = frappe.get_doc("Metal Type", item.custom_value)
     self.custom_pure_weight = self.custom_net_weight * metal.gram_covers
     self.custom_total_stone_value = total_stone_value
+    print(self.custom_labour_rate_on,'--------------------------------',self.custom_labour_rate,self.custom_net_weight,self.custom_gross_weight)
+    if self.custom_labour_rate_on == "Net":
+        self.custom_labour_value = (self.custom_labour_rate * self.custom_net_weight)
+    else:
+        self.custom_labour_value = (self.custom_labour_rate * self.custom_gross_weight)
 

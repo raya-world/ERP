@@ -36,15 +36,52 @@ custom_fields = {
             "fieldtype": "Float",
         },
         {
+            "label": "Metal Rate",
+            "fieldname": "custom_metal_rate",
+            "insert_after": "custom_pure_weight",
+            "fieldtype": "Float",
+        },
+        {
+            "label": "",
+            "fieldname": "custom_column_break",
+            "insert_after": "custom_metal_rate",
+            "fieldtype": "Column Break",
+        },
+        {
+            "label": "Labour Rate on",
+            "fieldname": "custom_labour_rate_on",
+            "insert_after": "custom_column_break",
+            "fieldtype": "Select",
+            "options": "\nNet\nGross\n",
+        },
+        {
+            "label": "Labour Rate",
+            "fieldname": "custom_labour_rate",
+            "insert_after": "custom_labour_rate_on",
+            "fieldtype": "Float",
+        },
+        {
+            "label": "Labour Value",
+            "fieldname": "custom_labour_value",
+            "insert_after": "custom_labour_rate",
+            "fieldtype": "Float",
+        },
+        {
             "label": "All Stone Value",
             "fieldname": "custom_total_stone_value",
             "insert_after": "custom_pure_weight",
             "fieldtype": "Currency",
         },
         {
+            "label":"",
+            "fieldname": "custom_stone_info",
+            "insert_after": "custom_total_stone_value",
+            "fieldtype": "Section Break",
+        },
+        {
             "label": "Stone Details",
             "fieldname": "custom_stone_detials",
-            "insert_after": "custom_pure_weight",
+            "insert_after": "custom_stone_info",
             "fieldtype": "Table",
             "Options":"Stone Details"
         },
