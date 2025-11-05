@@ -10,6 +10,14 @@ custom_fields = {
             "fieldtype": "Check",
         },
     ],
+    "Item Variant Attribute": [
+        {
+            "label": "Stone Family",
+            "fieldname": "custom_stone_family",
+            "insert_after": "custom_value",
+            "fieldtype": "Data",
+        },
+    ],
     "Serial No":[
         {
             "label":"Product Info",

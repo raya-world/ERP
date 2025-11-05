@@ -11,13 +11,46 @@ def custom_item_autoname(self, method=None):
     """
     Custom naming for Item Doctype.
     Format: RY-{custom_product_master}-{####}
+    Product type 	Abbreviation
     """
-    if self.custom_product_master:
-        prefix = f"RY-{self.custom_product_master}-"
-        self.name = make_autoname(prefix + ".####")
-    else:
-        # fallback to default
-        self.name = make_autoname("RY-ITEM-.####")
+    item_group = {
+        "Ring": "RG",
+        "Earrings": "ER",
+        "earring": "G",
+        "pendant": "PD",
+        "chain": "CH",
+        "nose pin": "NP",
+        "anklet": "AN",
+        "charms": "CM",
+        "Pendant": "PD",
+        "Pendant set": "PDS",
+        "Braclet": "BR",
+        "Cum necklace": "BR-NL",
+        "Necklace": "NL",
+        "Necklace Set": "NLS"
+    }
+    metal_color = {
+        "yellow": "Y",
+        "rose": "R",
+        "white": "W"
+    }
+    prefix = f"RY-{self.custom_product_master}-"
+    if item_group.get(self.item_group):
+            prefix = prefix + item_group[self.item_group] + "-"
+    for i in self.custom_variant_attributes:
+        if i.attribute == "Metal":
+            color_key = i.custom_value.lower()
+            if metal_color.get(color_key):
+                prefix = prefix + metal_color[color_key] + "-"
+        if i.attribute == "Shape":
+            prefix = prefix + i.custom_value.lower() + "-"
+        if i.attribute == "Stone Family":
+            prefix = prefix + i.custom_value.lower() + "-"
+        if i.attribute == "Metal Color":
+            color_key = i.custom_value.lower()
+            if metal_color.get(color_key):
+                prefix = prefix + metal_color[color_key] + "-"
+    self.name = make_autoname(prefix + ".####")
 
 def after_insert(self, method=None):
     pass
@@ -42,13 +75,15 @@ def calculate_stone_collection(self):
                 stone_collections[i.custom_stone_id] = {}
             stone_collections[i.custom_stone_id][i.attribute] = i.custom_value
         else:
+            print(f"Attribute without stone id: {i.attribute} - {i.custom_value}")
             if i.attribute == "Band":
-                band = frappe.get_doc("Ring Attributes", i.custom_value)
-                stones_weight = stones_weight + band.total_weight_in_ct
+                band = frappe.get_doc("Stone Structurae Lex", i.custom_value)
+                #Now calculate weight based on family and other data from Stone Structurae Lex
+                stones_weight = stones_weight + calc_stone_wt(band,i.custom_stone_family)
 
             if i.attribute == "Halo":
-                halo = frappe.get_doc("Ring Attributes", i.custom_value)
-                stones_weight = stones_weight + halo.total_weight_in_ct
+                halo = frappe.get_doc("Stone Structurae Lex", i.custom_value)
+                stones_weight = stones_weight + calc_stone_wt(halo,i.custom_stone_family)
     
     custom_stones_list = []
     for stone_collection in stone_collections.values():
@@ -99,6 +134,32 @@ def get_stone_details(self):
 
 def update_metal_price(self):
     pass
+def calc_stone_wt(doc,stone_family):
+	weight = 0
+	if doc.dimension[-2:] == "ct":
+		weight = weight + float(doc.dimension[:-2])
+	else:
+		length = doc.dimension.split("x")[0]
+		width = doc.dimension.split("x")[1] if "x" in doc.dimension else None
+		height = doc.dimension.split("x")[2] if doc.dimension.count("x") == 2 else None
+		if height:
+			sd = frappe.get_doc("Stone Dimension", {
+				"Shape": doc.shape,
+				"stone_type": stone_family,
+				"length": round(float(length),3),
+				"width": round(float(width),3),
+				"height": round(float(height),3)
+			})
+			weight = weight + float(sd.estimated_weight_ct)
+		else:
+			sd = frappe.get_doc("Stone Dimension", {
+				"Shape": doc.shape,
+				"stone_type": stone_family,
+				"length": round(float(length),3),
+				"width": round(float(width),3)
+			})
+			weight = weight + float(sd.estimated_weight_ct)
+	return weight
 
 @frappe.whitelist()
 def fetch_metal_price(name):
