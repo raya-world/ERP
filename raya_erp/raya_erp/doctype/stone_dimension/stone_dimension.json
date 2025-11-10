@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{shape}-{cut}-{origin}-{purity}-{gradecolour}-{stone_type}-{length}x{width}x{height}",
  "creation": "2025-08-30 12:29:24.791758",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -11,6 +12,9 @@
   "length",
   "width",
   "height",
+  "origin",
+  "purity",
+  "gradecolour",
   "stone_type",
   "estimated_weight_ct",
   "price"
@@ -44,7 +48,7 @@
   {
    "fieldname": "stone_type",
    "fieldtype": "Data",
-   "label": "stone_type"
+   "label": "Stone Type"
   },
   {
    "fieldname": "estimated_weight_ct",
@@ -54,16 +58,32 @@
   {
    "fieldname": "price",
    "fieldtype": "Float",
-   "label": "Price"
+   "label": "Price per ct"
+  },
+  {
+   "fieldname": "origin",
+   "fieldtype": "Data",
+   "label": "Origin"
+  },
+  {
+   "fieldname": "purity",
+   "fieldtype": "Data",
+   "label": "Purity"
+  },
+  {
+   "fieldname": "gradecolour",
+   "fieldtype": "Data",
+   "label": "Grade/colour"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-20 11:00:23.134289",
+ "modified": "2025-11-10 12:51:45.513089",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Stone Dimension",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
