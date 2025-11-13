@@ -9,6 +9,19 @@ custom_fields = {
             "default": "1",
             "fieldtype": "Check",
         },
+        {
+            "label": "Metal Tags",
+            "fieldname": "custom_metal_tags",
+            "insert_after": "labor_rate",
+            "fieldtype": "Tab Break",
+        },
+        {
+            "label": "Metal Tag List",
+            "fieldname": "custom_metal_tag_list",
+            "insert_after": "custom_metal_tags",
+            "fieldtype": "Table",
+            "options": "Product Meta Tag"
+        },
     ],
     "Item Variant Attribute": [
         {

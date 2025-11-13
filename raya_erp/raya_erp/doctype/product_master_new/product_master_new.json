@@ -21,7 +21,9 @@
   "tab_3_tab",
   "table_boml",
   "margin_tab",
-  "table_njyg"
+  "table_njyg",
+  "meta_tags_tab",
+  "meta_tags_list"
  ],
  "fields": [
   {
@@ -99,12 +101,23 @@
    "fieldname": "table_njyg",
    "fieldtype": "Table",
    "options": "Country Wise Margin"
+  },
+  {
+   "fieldname": "meta_tags_tab",
+   "fieldtype": "Tab Break",
+   "label": "Meta Tags"
+  },
+  {
+   "fieldname": "meta_tags_list",
+   "fieldtype": "Table",
+   "label": "Meta tags list",
+   "options": "Product Meta Tag"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-05 11:23:36.257483",
+ "modified": "2025-11-13 20:03:43.687633",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Product Master New",
