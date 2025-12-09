@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:stone_type",
+ "creation": "2025-12-10 00:46:10.702863",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "stone_type",
+  "month_keyword__month",
+  "hardness_mohs",
+  "birthstone",
+  "compatible_zodiac_western",
+  "column_break_bjjc",
+  "color_hex",
+  "chakra",
+  "zodiac_vedic__sidereal",
+  "section_break_wfrn",
+  "emotional_keywords",
+  "gifting_occasion",
+  "healing_keywords",
+  "non_compatible_stone",
+  "profession",
+  "civilization_meanings",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "stone_type",
+   "fieldtype": "Data",
+   "label": "Stone Type",
+   "unique": 1
+  },
+  {
+   "fieldname": "month_keyword__month",
+   "fieldtype": "Data",
+   "label": "Month Keyword / Month"
+  },
+  {
+   "fieldname": "birthstone",
+   "fieldtype": "Data",
+   "label": "Birthstone"
+  },
+  {
+   "fieldname": "compatible_zodiac_western",
+   "fieldtype": "Data",
+   "label": "Compatible Zodiac (Western)"
+  },
+  {
+   "fieldname": "emotional_keywords",
+   "fieldtype": "Small Text",
+   "label": "Emotional Keywords"
+  },
+  {
+   "fieldname": "healing_keywords",
+   "fieldtype": "Small Text",
+   "label": "Healing Keywords"
+  },
+  {
+   "fieldname": "gifting_occasion",
+   "fieldtype": "Small Text",
+   "label": "Gifting Occasion"
+  },
+  {
+   "fieldname": "profession",
+   "fieldtype": "Small Text",
+   "label": "Profession"
+  },
+  {
+   "fieldname": "non_compatible_stone",
+   "fieldtype": "Small Text",
+   "label": "Non compatible Stone"
+  },
+  {
+   "fieldname": "hardness_mohs",
+   "fieldtype": "Data",
+   "label": "Hardness (Mohs)"
+  },
+  {
+   "fieldname": "color_hex",
+   "fieldtype": "Data",
+   "label": "Color Hex"
+  },
+  {
+   "fieldname": "section_break_wfrn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bjjc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chakra",
+   "fieldtype": "Data",
+   "label": "Chakra"
+  },
+  {
+   "fieldname": "zodiac_vedic__sidereal",
+   "fieldtype": "Data",
+   "label": "Zodiac (Vedic / Sidereal)"
+  },
+  {
+   "fieldname": "civilization_meanings",
+   "fieldtype": "Small Text",
+   "label": "Civilization Meanings"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-10 00:52:56.930031",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Stone Meta Tags Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

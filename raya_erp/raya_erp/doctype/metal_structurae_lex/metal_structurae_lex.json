@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-10 00:58:26.054127",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "metal_name",
+  "metal_type",
+  "metal_colour",
+  "metal_weight",
+  "column_break_rsbw",
+  "length",
+  "width",
+  "height",
+  "with_stone",
+  "section_break_ojbi",
+  "cut",
+  "no_of_stones",
+  "stone_length",
+  "stone_width",
+  "stone_height"
+ ],
+ "fields": [
+  {
+   "fieldname": "metal_name",
+   "fieldtype": "Data",
+   "label": "Metal Name"
+  },
+  {
+   "fieldname": "metal_type",
+   "fieldtype": "Data",
+   "label": "Metal Type"
+  },
+  {
+   "fieldname": "metal_colour",
+   "fieldtype": "Data",
+   "label": "Metal Colour"
+  },
+  {
+   "fieldname": "column_break_rsbw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "label": "Height"
+  },
+  {
+   "default": "0",
+   "fieldname": "with_stone",
+   "fieldtype": "Check",
+   "label": "With Stone"
+  },
+  {
+   "fieldname": "section_break_ojbi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cut",
+   "fieldtype": "Data",
+   "label": "Cut"
+  },
+  {
+   "fieldname": "no_of_stones",
+   "fieldtype": "Int",
+   "label": "No of Stones"
+  },
+  {
+   "fieldname": "stone_length",
+   "fieldtype": "Float",
+   "label": "Stone Length"
+  },
+  {
+   "fieldname": "stone_width",
+   "fieldtype": "Float",
+   "label": "Stone Width"
+  },
+  {
+   "fieldname": "stone_height",
+   "fieldtype": "Float",
+   "label": "Stone Height"
+  },
+  {
+   "fieldname": "metal_weight",
+   "fieldtype": "Float",
+   "label": "Metal Weight"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-10 01:11:56.023498",
+ "modified_by": "Administrator",
+ "module": "Raya ERP",
+ "name": "Metal Structurae Lex",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

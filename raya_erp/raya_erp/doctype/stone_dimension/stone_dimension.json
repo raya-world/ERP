@@ -8,16 +8,20 @@
  "engine": "InnoDB",
  "field_order": [
   "shape",
+  "family",
   "cut",
   "length",
   "width",
   "height",
+  "size_range",
   "origin",
   "purity",
   "gradecolour",
   "stone_type",
   "estimated_weight_ct",
-  "price"
+  "price",
+  "price_per_ct_usd",
+  "source_file"
  ],
  "fields": [
   {
@@ -74,12 +78,32 @@
    "fieldname": "gradecolour",
    "fieldtype": "Data",
    "label": "Grade/colour"
+  },
+  {
+   "fieldname": "family",
+   "fieldtype": "Data",
+   "label": "Family"
+  },
+  {
+   "fieldname": "size_range",
+   "fieldtype": "Data",
+   "label": "Size Range"
+  },
+  {
+   "fieldname": "source_file",
+   "fieldtype": "Small Text",
+   "label": "Source File"
+  },
+  {
+   "fieldname": "price_per_ct_usd",
+   "fieldtype": "Float",
+   "label": "Price per ct USD"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-10 12:51:45.513089",
+ "modified": "2025-12-10 00:43:40.198794",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Stone Dimension",
