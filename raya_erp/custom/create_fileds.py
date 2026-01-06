@@ -10,6 +10,12 @@ custom_fields = {
             "fieldtype": "Check",
         },
         {
+            "label": "Estimated Delivery Days",
+            "fieldname": "custom_estimated_delivery_days",
+            "insert_after": "has_variants",
+            "fieldtype": "Int",
+        },
+        {
             "label": "Metal Tags",
             "fieldname": "custom_metal_tags",
             "insert_after": "labor_rate",

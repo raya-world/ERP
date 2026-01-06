@@ -10,29 +10,31 @@
   "shape",
   "family",
   "cut",
-  "length",
-  "width",
-  "height",
-  "size_range",
   "origin",
   "purity",
   "gradecolour",
   "stone_type",
+  "column_break_gukc",
+  "size_range",
+  "length",
+  "width",
+  "height",
   "estimated_weight_ct",
   "price",
   "price_per_ct_usd",
+  "section_break_nkdd",
   "source_file"
  ],
  "fields": [
   {
    "fieldname": "shape",
    "fieldtype": "Data",
-   "label": "shape"
+   "label": "Shape"
   },
   {
    "fieldname": "cut",
    "fieldtype": "Data",
-   "label": "cut"
+   "label": "Cut Style"
   },
   {
    "fieldname": "length",
@@ -72,17 +74,17 @@
   {
    "fieldname": "purity",
    "fieldtype": "Data",
-   "label": "Purity"
+   "label": "Clarity"
   },
   {
    "fieldname": "gradecolour",
    "fieldtype": "Data",
-   "label": "Grade/colour"
+   "label": "Colour"
   },
   {
    "fieldname": "family",
    "fieldtype": "Data",
-   "label": "Family"
+   "label": "Stone Name"
   },
   {
    "fieldname": "size_range",
@@ -98,12 +100,20 @@
    "fieldname": "price_per_ct_usd",
    "fieldtype": "Float",
    "label": "Price per ct USD"
+  },
+  {
+   "fieldname": "column_break_gukc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nkdd",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-10 00:43:40.198794",
+ "modified": "2026-01-07 00:11:49.330963",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Stone Dimension",
