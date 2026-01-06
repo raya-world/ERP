@@ -14,6 +14,8 @@
   "purity",
   "gradecolour",
   "stone_type",
+  "cut_grade",
+  "country_orgin",
   "column_break_gukc",
   "size_range",
   "length",
@@ -22,6 +24,7 @@
   "estimated_weight_ct",
   "price",
   "price_per_ct_usd",
+  "enhancementtreatment",
   "section_break_nkdd",
   "source_file"
  ],
@@ -108,12 +111,27 @@
   {
    "fieldname": "section_break_nkdd",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "enhancementtreatment",
+   "fieldtype": "Data",
+   "label": "Enhancement/Treatment"
+  },
+  {
+   "fieldname": "cut_grade",
+   "fieldtype": "Data",
+   "label": "Cut Grade"
+  },
+  {
+   "fieldname": "country_orgin",
+   "fieldtype": "Data",
+   "label": "Country orgin"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-07 00:11:49.330963",
+ "modified": "2026-01-07 00:26:29.936532",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Stone Dimension",
