@@ -6,24 +6,43 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "ring_size"
+  "ring_size",
+  "ring_size_uk",
+  "internal_diameter_mm",
+  "ring_size_in_german"
  ],
  "fields": [
   {
    "fieldname": "ring_size",
-   "fieldtype": "Int",
-   "label": "Ring Size",
+   "fieldtype": "Data",
+   "label": "Ring Size US",
+   "unique": 1
+  },
+  {
+   "fieldname": "internal_diameter_mm",
+   "fieldtype": "Float",
+   "label": "Internal Diameter MM"
+  },
+  {
+   "fieldname": "ring_size_in_german",
+   "fieldtype": "Float",
+   "label": "Ring Size in German"
+  },
+  {
+   "fieldname": "ring_size_uk",
+   "fieldtype": "Data",
+   "label": "Ring Size UK",
    "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-03 19:50:04.501958",
+ "modified": "2026-01-17 11:38:41.705882",
  "modified_by": "Administrator",
  "module": "Raya ERP",
  "name": "Ring Size",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
