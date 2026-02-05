@@ -56,12 +56,16 @@ def after_insert(self, method=None):
     pass
 
 def before_save(self,method=None):
-    if self.item_group == "Rings":
-        self.stone_carat_wt = calculate_stone_collection(self)
-        self.stones_weight = self.stone_carat_wt * 0.2
-        self.net_weight = self.gross_weight - self.stones_weight
-        metal = frappe.get_doc("Metal Type", self.metal_type)
-        self.custom_net_weight_metal = self.net_weight * metal.gram_covers
+    # if self.item_group == "Rings":
+    stone_weight = calculate_stone_collection(self)
+    self.stone_carat_wt = stone_weight if stone_weight is not None else 0
+    self.stones_weight = self.stone_carat_wt * 0.2
+    self.net_weight = self.gross_weight - self.stones_weight
+    for i in self.custom_variant_attributes:
+        if i.attribute == "Metal Type":
+            self.metal_type = i.custom_value
+            metal = frappe.get_doc("Metal Type", self.metal_type)
+    self.custom_net_weight_metal = self.net_weight * metal.gram_covers
 
 def calculate_stone_collection(self):
     stones_weight = 0.0
