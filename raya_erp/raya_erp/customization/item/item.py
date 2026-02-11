@@ -72,7 +72,7 @@ def calculate_stone_collection(self):
     stone_collections = {}
 
     for i in self.custom_variant_attributes:
-        if i.attribute == "Metal":
+        if i.attribute == "Metal Type":
             self.metal_type = i.custom_value
         if i.custom_stone_id:
             if i.custom_stone_id not in stone_collections:
@@ -170,11 +170,11 @@ def fetch_metal_price(name):
     try:
         item = frappe.get_doc("Item", name)
         for i in item.custom_variant_attributes:
-            if i.attribute == "Metal":
+            if i.attribute == "Metal Type":
                 metal_type = i.custom_value
                 break
         parts = metal_type.split('-')
-        rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])+"kt"}, "rate_per_gm")
+        rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])}, "rate_per_gm")
         return rate
     except Exception as e:
         return 0
