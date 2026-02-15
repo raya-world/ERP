@@ -176,6 +176,7 @@ def calc_stone_wt(doc,stone_family):
 
 @frappe.whitelist()
 def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
+    print(f"-------------------fetch_metal_price called with name={name}, item_code={item_code}, item={item}, kwargs={kwargs}")
     try:
         identifier = name or item_code or item or kwargs.get("identifier")
         docname = _resolve_item_docname(identifier)
@@ -183,7 +184,7 @@ def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
             return 0
 
         item_doc = frappe.get_doc("Item", docname)
-
+        print(f"Fetched Item doc: {item_doc.name}")
         metal_type = None
         for row in (item_doc.custom_variant_attributes or []):
             if row.attribute == "Metal Type" and row.custom_value:
@@ -193,15 +194,16 @@ def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
             return 0
 
         # Accept formats like: "Gold-18", "Gold - 18", "Gold-18K" (purity stored as text).
-        parts = [p.strip() for p in re.split(r"\s*-\s*", metal_type, maxsplit=1)]
-        if len(parts) != 2 or not parts[0] or not parts[1]:
-            return 0
+        # Silver-925-Rose Gold = [""Silver", "925", "Rose Gold"]
+        parts = [part.strip() for part in re.split(r"[-\s]+", metal_type) if part.strip()]
+        print(f"Parsed metal_type into parts: {parts}")
 
         rate = frappe.db.get_value(
             "Raya Price List",
-            {"metal_type": parts[0], "purity": str(parts[1]).strip()},
+            {"metal_type": parts[0], "purity": str(parts[1])},
             "rate_per_gm",
         )
+        print(f"Fetched rate from Raya Price Lis...................: {rate}")
         return rate or 0
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "fetch_metal_price failed")
