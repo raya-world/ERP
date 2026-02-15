@@ -184,7 +184,7 @@ def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
             return 0
 
         item_doc = frappe.get_doc("Item", docname)
-        print(f"Fetched Item doc: {item_doc.name}")
+        frappe.log_error(f"Fetched Item doc: {item_doc.name}")
         metal_type = None
         for row in (item_doc.custom_variant_attributes or []):
             if row.attribute == "Metal Type" and row.custom_value:
@@ -192,18 +192,17 @@ def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
                 break
         if not metal_type:
             return 0
-
-        # Accept formats like: "Gold-18", "Gold - 18", "Gold-18K" (purity stored as text).
-        # Silver-925-Rose Gold = [""Silver", "925", "Rose Gold"]
+        frappe.log_error(f"Found metal_type: {metal_type}")
         parts = [part.strip() for part in re.split(r"[-\s]+", metal_type) if part.strip()]
-        print(f"Parsed metal_type into parts: {parts}")
+        frappe.log_error(f"Parsed metal_type into parts: {parts}")
 
         rate = frappe.db.get_value(
             "Raya Price List",
             {"metal_type": parts[0], "purity": str(parts[1])},
             "rate_per_gm",
         )
-        print(f"Fetched rate from Raya Price Lis...................: {rate}")
+        frappe.log_error(f"Fetched rate from Raya Price List: {rate}")
+        print(f"Fetched rate from Raya Price Lis................... : {rate}")
         return rate or 0
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "fetch_metal_price failed")
