@@ -3,6 +3,15 @@ import re
 from erpnext.stock.doctype.item.item import Item
 from frappe.model.naming import make_autoname
 
+
+def _resolve_item_docname(identifier: str | None) -> str | None:
+    """Resolve an Item docname from either docname or item_code."""
+    if not identifier:
+        return None
+    if frappe.db.exists("Item", identifier):
+        return identifier
+    return frappe.db.get_value("Item", {"item_code": identifier}, "name")
+
 class CustomItem(Item):
     def validate_attributes(self):
         pass
@@ -166,17 +175,36 @@ def calc_stone_wt(doc,stone_family):
 	return weight
 
 @frappe.whitelist()
-def fetch_metal_price(name):
+def fetch_metal_price(name=None, item_code=None, item=None, **kwargs):
     try:
-        item = frappe.get_doc("Item", name)
-        for i in item.custom_variant_attributes:
-            if i.attribute == "Metal Type":
-                metal_type = i.custom_value
+        identifier = name or item_code or item or kwargs.get("identifier")
+        docname = _resolve_item_docname(identifier)
+        if not docname:
+            return 0
+
+        item_doc = frappe.get_doc("Item", docname)
+
+        metal_type = None
+        for row in (item_doc.custom_variant_attributes or []):
+            if row.attribute == "Metal Type" and row.custom_value:
+                metal_type = row.custom_value
                 break
-        parts = metal_type.split('-')
-        rate = frappe.db.get_value("Raya Price List", {"metal_type": parts[0],"purity": str(parts[1])}, "rate_per_gm")
-        return rate
+        if not metal_type:
+            return 0
+
+        # Accept formats like: "Gold-18", "Gold - 18", "Gold-18K" (purity stored as text).
+        parts = [p.strip() for p in re.split(r"\s*-\s*", metal_type, maxsplit=1)]
+        if len(parts) != 2 or not parts[0] or not parts[1]:
+            return 0
+
+        rate = frappe.db.get_value(
+            "Raya Price List",
+            {"metal_type": parts[0], "purity": str(parts[1]).strip()},
+            "rate_per_gm",
+        )
+        return rate or 0
     except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "fetch_metal_price failed")
         return 0
     
 @frappe.whitelist()
